@@ -72,11 +72,11 @@
 
     var modelo = null;
 
-    (async() => {
-      console.log("Cargando modelo...");
-      modelo = await tf.loadLayersModel("model.json");
-      console.log("Modelo cargado");
-    })();
+    //(async() => {
+      //console.log("Cargando modelo...");
+      //modelo = await tf.loadLayersModel("model.json");
+      //console.log("Modelo cargado");
+    //})();
 
     window.onload = function() {
       mostrarCamara();
@@ -261,6 +261,14 @@
 
           ctx2.putImageData(img2, 0, 0);
       }
+
+      tf.loadLayersModel('model.json').then(function (modelo) {
+  // El modelo se ha cargado correctamente
+  // Ahora puedes usar el modelo para hacer predicciones
+  console.log('Modelo cargado correctamente', modelo);
+}).catch(function (error) {
+  console.error('Error al cargar el modelo', error); 
+});
   </script>
   </body>
 </html>

@@ -33,12 +33,13 @@
 
       <div class="container mt-5">
         <div class="row">
-          <div id="resultado"></div>
+          
           <div class="col-12 col-md-4 offset-md-4 text-center">
             <video id="video" playsinline autoplay style="width: 1px;"></video>
             <button class="btn btn-primary mb-2" id="cambiar-camara" onclick="cambiarCamara();">Cambiar camara</button>
             <canvas id="canvas" width="400" height="400" style="max-width: 100%;"></canvas>
             <canvas id="otrocanvas" width="150" height="150" style="display: none"></canvas>
+            <div id="resultado"></div>
           </div>
         </div>
       </div>
@@ -71,6 +72,16 @@
     var facingMode = "user";
 
     var modelo = null;
+    
+    tf.loadLayersModel('https://oscarhuamani.github.io/ClasificadorIA.github.io//model.json').then(function (modelo) {
+  // El modelo se ha cargado correctamente
+  // Ahora puedes usar el modelo para hacer predicciones
+  console.log('Modelo cargado correctamente', modelo);
+}).catch(function (error) {
+  console.error('Error al cargar el modelo', error);
+});
+
+
 
     (async() => {
       console.log("Cargando modelo...");
